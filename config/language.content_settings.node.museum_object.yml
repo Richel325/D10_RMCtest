@@ -1,0 +1,11 @@
+uuid: 22c26718-c54f-4b0d-8412-617fa01467d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.museum_object
+id: node.museum_object
+target_entity_type_id: node
+target_bundle: museum_object
+default_langcode: site_default
+language_alterable: false

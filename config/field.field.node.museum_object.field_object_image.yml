@@ -1,0 +1,33 @@
+uuid: 8f6601b3-2695-410a-af48-4265f1f44092
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_object_image
+    - media.type.image
+    - node.type.museum_object
+  content:
+    - 'media:image:3e3e1795-dcca-4ded-bc85-bdfe4da268e7'
+id: node.museum_object.field_object_image
+field_name: field_object_image
+entity_type: node
+bundle: museum_object
+label: 'object image'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 3e3e1795-dcca-4ded-bc85-bdfe4da268e7
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: 72c4c6fe-aa63-41c8-8484-f920633e73fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_medium
+    - node.type.museum_object
+id: node.museum_object.field_medium
+field_name: field_medium
+entity_type: node
+bundle: museum_object
+label: Medium
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

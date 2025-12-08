@@ -1,0 +1,38 @@
+uuid: 86f83b01-106a-4d9b-80e0-d2d5f7a5e33f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.museum_object.feeds_item
+    - field.field.node.museum_object.field_artist_name
+    - field.field.node.museum_object.field_description
+    - field.field.node.museum_object.field_dimensions
+    - field.field.node.museum_object.field_medium
+    - field.field.node.museum_object.field_object_image
+    - field.field.node.museum_object.field_object_number
+    - field.field.node.museum_object.field_object_title
+    - node.type.museum_object
+  module:
+    - user
+id: node.museum_object.teaser
+targetEntityType: node
+bundle: museum_object
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  feeds_item: true
+  field_artist_name: true
+  field_description: true
+  field_dimensions: true
+  field_medium: true
+  field_object_image: true
+  field_object_number: true
+  field_object_title: true
+  langcode: true
+  search_api_excerpt: true

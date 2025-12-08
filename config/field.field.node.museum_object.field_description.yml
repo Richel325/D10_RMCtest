@@ -1,0 +1,27 @@
+uuid: 3a7be534-c7bd-494d-814d-1ed5f58bb63c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - filter.format.basic_html
+    - node.type.museum_object
+  module:
+    - text
+id: node.museum_object.field_description
+field_name: field_description
+entity_type: node
+bundle: museum_object
+label: Description
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 'No description available.'
+    format: basic_html
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text

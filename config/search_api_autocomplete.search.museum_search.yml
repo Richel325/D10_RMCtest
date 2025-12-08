@@ -1,0 +1,37 @@
+uuid: ef740a1b-1916-4d54-8854-2de0862269a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.museum_search
+    - views.view.museum_search
+  module:
+    - views
+id: museum_search
+label: 'Museum Search'
+index_id: museum_search
+suggester_settings:
+  live_results:
+    fields: {  }
+    highlight:
+      enabled: false
+      field: ''
+    suggest_keys: true
+    view_modes:
+      'entity:node':
+        museum_object: ''
+suggester_weights:
+  live_results: 0
+suggester_limits: {  }
+search_settings:
+  'views:museum_search':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  delay: null
+  submit_button_selector: ':submit'
+  autosubmit: true

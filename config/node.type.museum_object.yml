@@ -1,0 +1,18 @@
+uuid: b08d174f-4c2c-4c01-8b92-5aa8b1c682ef
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Museum-Object
+type: museum_object
+description: "Details for an art object from the Hood Museum's collections."
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false
