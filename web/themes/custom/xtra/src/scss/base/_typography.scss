@@ -1,0 +1,142 @@
+// Typography overrides and helpers.
+
+// -----------------------------------------------------------------------------
+
+// Variable font settings needs to be in typography.scss instead of
+// _variables.scss they are not loaded for CKEditor to avoid Claro
+// overrides. System fonts are used within CKEditor.
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// Variable Font Styles
+:root {
+    --acumin-wght: 400;
+    --acumin-wdth: 100;
+    --acumin-slnt: 0;
+  }
+
+// For browsers supporting variable fonts
+@supports (font-variation-settings: "wght" 400) {
+  * {
+    font-variation-settings: "wght" var(--acumin-wght), "wdth" var(--acumin-wdth), "slnt" var(--acumin-slnt);
+  }
+}
+
+body {
+  font-variation-settings: "wght" var(--acumin-wght), "wdth" var(--acumin-wdth), "slnt" var(--acumin-slnt);
+  font-style: normal;
+  font-synthesis: none;
+  .fst-italic {
+    font-style: normal !important;
+    --acumin-slnt: -12;
+  }
+}
+
+#front-page {
+  h2, h3, .h2, .h3 {
+    margin-top: 0;
+  }
+}
+
+.fw-bold, .fw-bolder, .fw-normal, .fw-light, .fw-lighter, b, dt, th {
+  font-weight: normal !important;
+}
+
+.fw-bold, b, strong, dt, th {
+  --acumin-wght: 700;
+}
+
+.fw-bolder {
+  --acumin-wght: 800;
+}
+
+.fw-semibold {
+  --acumin-wght: 500;
+}
+
+.fw-normal {
+  --acumin-wght: 400;
+}
+
+.fw-light {
+  --acumin-wght: 300;
+}
+
+.fw-lighter {
+  --acumin-wght: 100;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: normal !important;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+h1, h1.page-title, .h1, .h1.page-title {
+  --acumin-wght: 800;
+  @include media-breakpoint-down(md) {
+    font-size: $h1-mobile-font-size;
+  }
+}
+
+h2, .h2 {
+  --acumin-wght: 700;
+}
+
+h3, h3 strong, .h3, .h3 strong {
+  --acumin-wght: 700;
+}
+
+h4, .h4 {
+  --acumin-wght: 700;
+}
+
+h5, .h5 {
+  --acumin-wght: 700;
+}
+
+h6, .h6 {
+  --acumin-wght: 700;
+}
+// Fallback for browsers without variable font support
+@supports not (font-variation-settings: "wght" 400) {
+  .fw-bold, b, strong, dt, th { font-weight: 700; }
+  .fw-bolder { font-weight: 800; }
+  .fw-semibold { font-weight: 500; }
+  .fw-normal { font-weight: 400; }
+  .fw-light { font-weight: 300; }
+  .fw-lighter { font-weight: 100; }
+  h1, .h1 { font-weight: 800; }
+  h2, h3, h4, h5, h6, .h2, .h3, .h4, .h5, .h6 { font-weight: 700; }
+}
+
+h2.accordion-header, .h2.accordion-header {
+    margin: 0;
+}
+
+.page__content {
+  .field:first-child {
+    h2:first-child, h3:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .card, .callout {
+    h2, h3, .h2, .h3 {
+      margin-top: 0;
+    }
+  }
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 3px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 1em 1em .5em 1em;
+}

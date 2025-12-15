@@ -1,0 +1,53 @@
+{#
+ Custom address field template to print address components individually.
+ This ensures you control spaces and punctuation.
+ Available variables:
+   - items: A list of address render arrays (can have multiple values)
+   - attributes: HTML attributes for the containing element
+#}
+{% for item in items %}
+<div{{ attributes.addClass('address') }}>
+   {# Organization (if present) #}
+   {% if item.organization %}
+<div class="address-organization">{{ item.content.organization }}</div>
+   {% endif %}
+   {# Given name and family name #}
+   {#{% if item.content.given_name or item.content.family_name %}
+<div class="address-name">
+       {{ [item.content.given_name, item.content.family_name]|filter|join(' ') }}
+</div>
+   {% endif %}#}
+   {# Address lines #}
+   {% if item.content.address_line1 %}
+<div class="address-line1">{{ item.content.address_line1 }}</div>
+   {% endif %}
+   {% if item.content.address_line2 %}
+<div class="address-line2">{{ item.content.address_line2 }}</div>
+   {% endif %}
+   {# Locality (city), administrative area (state), and postal code #}
+<div class="address-locality">
+     {# Print city #}
+     {% if item.content.locality %}
+<span class="address-city">{{ item.content.locality }}</span>{% if item.content.administrative_area or item.content.postal_code %},{% endif %}
+     {% endif %}
+     {# Print state and postal code with a space between them #}
+     {% if item.content.administrative_area or item.content.postal_code %}
+<span class="address-state-postal">
+         {% if item.content.administrative_area %}
+<span class="address-state">{{ item.content.administrative_area }}</span>
+         {% endif %}
+         {% if item.content.administrative_area and item.content.postal_code %}
+          <span>&nbsp;</span>
+         {% endif %}
+         {% if item.content.postal_code %}
+<span class="address-postal">{{ item.content.postal_code }}</span>
+         {% endif %}
+</span>
+     {% endif %}
+</div>
+   {# Country #}
+   {% if item.content.country_code %}
+<div class="address-country">{{ item.content.country_code }}</div>
+   {% endif %}
+</div>
+{% endfor %}

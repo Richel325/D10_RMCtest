@@ -1,0 +1,217 @@
+// Variables
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and
+// $modal-content-box-shadow-xs.
+
+// To customize
+// - Copy paste the variable from node_modules/bootstrap/scss/_variables.scss
+// @see: https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss
+// - Change the value and remove the !default flag.
+// e.g.
+// $body-bg: #000;
+// $body-color: $gray-100;
+
+$enable-dark-mode:            true;
+
+$spacer:                      1rem;
+
+// scss-docs-start font-variables
+$font-family-sans-serif:      "acumin-variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+// All font-weight and font-style settings are in _typography.scss
+
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+
+$h1-font-size:                2.813rem; // 45px
+$h1-mobile-font-size:         2.25rem; // 36px
+$h2-font-size:                1.875rem; // 30px
+$h3-font-size:                1.563rem; // 25px
+$h4-font-size:                1.25rem; // 20px
+$h5-font-size:                1.15rem; // 20px
+$h6-font-size:                $font-size-base;
+
+// scss-docs-end font-variables
+
+// scss-docs-start headings-variables
+$headings-margin-bottom:      $spacer;
+// scss-docs-end headings-variables
+
+// scss-docs-start display-headings
+$display-font-weight:         normal;
+// scss-docs-end display-headings
+
+// scss-docs-start display-headings
+$display-font-sizes: (
+  1: 2.813rem,
+  2: 1.875rem,
+  3: 1.563rem,
+  4: 1.25rem,
+  5: 1.15rem,
+  6: $font-size-base
+);
+$display-font-weight: 400;
+// scss-docs-end display-headings
+
+
+// scss-docs-start type-variables
+$lead-font-weight:            normal;
+$legend-font-weight:          null;
+$dt-font-weight:              normal;
+
+$blockquote-margin-y:         $spacer;
+$blockquote-font-size:        $font-size-base * 1.25;
+
+$hr-margin-y:                 $spacer;
+$hr-color:                    inherit;
+
+$hr-border-color:             null; // Allows for inherited colors
+$hr-opacity:                  1;
+// scss-docs-end type-variables
+
+// scss-docs-start table-variables
+$table-th-font-weight:        null;
+// scss-docs-end table-variables
+
+// scss-docs-start badge-variables
+$badge-font-weight:           normal;
+// scss-docs-end badge-variables
+
+// scss-docs-start alert-variables
+$alert-link-font-weight:      normal;
+// scss-docs-end alert-variables
+
+// Theme colors
+// -----------------------------------------------------------------------------
+
+// scss-docs-start custom-color-variables
+//Primary Pallet
+$gold:          #AF8F6F;
+$light-green:   #B7C6BC;
+$light-blue:    #A1D6F8;
+$deep-purple:   #34153A;
+$dark-red:      #851618;
+$dark-gray:     #152E3A;
+
+// Background Pallete
+$faded-blue:    #D0EAFB;
+$faded-gold:    #F3EEE9;
+$faded-green:   #E9EEEB;
+$faded-light-blue: #ECF7FE;
+$faded-purple:  #EFEDF0;
+$faded-red:     #F3E7E7;
+$faded-gray:    #EEF0F1;
+
+// Sheriff's Office
+$sheriff-black:  #101921;
+$sheriff-yellow: #f6b800;
+$sheriff-blue:   #005585;
+$sheriff-purple: #642f71;
+$sheriff-red:    #c20019;
+// Additional colors for our theme.
+$custom-colors: (
+  "gold":        $gold,
+  "light-green": $light-green,
+  "light-blue":  $light-blue,
+  "deep-purple": $deep-purple,
+  "dark-red":    $dark-red,
+  "dark-gray":   $dark-gray,
+  "faded-blue":  $faded-blue,
+  "faded-gold":  $faded-gold,
+  "faded-green": $faded-green,
+  "faded-light-blue": $faded-light-blue,
+  "faded-purple": $faded-purple,
+  "faded-red":   $faded-red,
+  "faded-gray":  $faded-gray,
+  "sheriff-black": $sheriff-black,
+  "sheriff-yellow":$sheriff-yellow,
+  "sheriff-blue":  $sheriff-blue,
+  "sheriff-purple":$sheriff-purple,
+  "sheriff-red":   $sheriff-red,
+);
+// scss-docs-end custom-color-variables
+
+// scss-docs-start color-variables
+$blue:    #0073A4;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #d63384;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #af8f6e;
+$green:   #198754;
+$teal:    #20c997;
+$cyan:    #0dcaf0;
+$gray:    #DEE2E6;
+$white:   #FFFFFF;
+// scss-docs-end color-variables
+
+// scss-docs-start theme-color-variables
+$primary:       $blue;
+$secondary:     $gray;
+$success:       $faded-blue;
+$info:          $light-blue;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray;
+$dark:          #6C757D;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+// scss-docs-end theme-colors-map
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Links
+//
+// Style anchor elements.
+$link-color:                 #006E9D;
+$link-hover-color:           #000000;
+$link-hover-decoration:       underline;
+
+// scss-docs-start breadcrumb-variables
+$breadcrumb-divider:                quote(">");
+// scss-docs-end breadcrumb-variables
+
+// scss-docs-start nav-variables
+$nav-pills-border-radius:           0;
+$nav-pills-link-active-color:       $white;
+$nav-pills-link-active-bg:          $primary;
+$nav-link-color:                    $dark-gray;
+// scss-docs-end nav-variables
+
+// scss-docs-start navbar-variables
+$navbar-padding-x:            1rem;
+// scss-docs-end navbar-variables
+
+// scss-docs-start border-radius-variables
+$border-radius:               .25rem;
+// scss-docs-end border-radius-variables
+
+// scss-docs-start card-variables
+$card-border-color:           $gray;
+// scss-docs-end card-variables
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+// scss-docs-start input-btn-variables
+$input-btn-padding-y:         .6rem;
+$input-btn-padding-x:         .75rem;
+// scss-docs-end input-btn-variables
+
+// Navs
+
+// scss-docs-start nav-variables
+$nav-link-padding-y:                .7rem;
+// scss-docs-end nav-variables

@@ -1,0 +1,18 @@
+.btn {
+  &.btn-primary {
+    background-color: map_get($theme-colors, "light-blue");
+    border-color: map_get($theme-colors, "light-blue");
+    color: map_get($theme-colors, "dark-gray");
+  }
+}
+
+.btn:hover {
+text-decoration: none;
+background-color: $faded-blue;
+}
+
+// Block button
+.btn-block {
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,256 @@
+.field--name-body li {
+  padding-bottom: .333rem !important;
+}
+
+.field--name-body th {
+  font-weight: bold;
+}
+
+.path-frontpage h1 {
+  margin-top: 2rem;
+}
+
+.view-news .views-row .pinned article {
+  border: 2px solid #AF8F6F;
+  background-color: #fff9fb;
+}
+
+.navbar .nav-item {
+  font-size: 1.25rem;
+}
+
+.group-relationship-confirm-form .form-actions {
+  margin-top: 1rem;
+}
+
+header .form-control, div.block--xtra-mainnavigation, div.block--xtra-groupsearchblock, div.block--xtra-exposedformsearch-grouppage-group-search {
+  .form-text, .form-textfield {
+    border: 1px solid !important;
+  }
+}
+
+.alert {
+  color: inherit !important;
+  background-color: #b7c6bc;
+  .heading {
+    font-weight: bold;
+  }
+}
+
+.notification {
+  border: 2px solid #eef0f1;
+  border-left-color: #851618;
+  border-left-width: 5px;
+  border-radius: 3px;
+  background-color: inherit !important;
+}
+
+.path-frontpage #views-exposed-form-news-page-front legend {
+  display: none;
+}
+
+.badge a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* #postheader {
+  background-color: rgb(236,247,253);
+}
+
+input#edit-submit-acquia-search-postheader {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 47px;
+  width: 50px;
+  border: none;
+  position: relative;
+  top: 3px;
+}
+*/
+
+form.simple-search-form .form-submit {
+  background: transparent url('/themes/custom/xtra/src/assets/images/magnifying-glass-solid.svg') no-repeat center center;
+  background-size: 50%;
+  text-indent: -9999px;
+  border: none;
+  width: 50px;
+  height: 47px;
+  position: relative;
+  top: 1px;
+  background-color: #a1d6f8;
+  border-color: #a1d6f8;
+  color: #152e3a;
+}
+
+.group-search-button {
+  background: transparent url('/themes/custom/xtra/src/assets/images/magnifying-glass-solid.svg') no-repeat center center;
+  background-size: 50%;
+  text-indent: -9999px;
+  border: none;
+  width: 50px;
+  height: 47px;
+  position: relative;
+  top: 1px;
+}
+
+footer {
+  .block {
+    color: #8a979d;
+  }
+  a, a:hover {
+    text-decoration: none;
+  }
+}
+
+// Masquerade link styling
+.user--full a[href*="/masquerade"] {
+  background-color: map_get($theme-colors, "dark-gray");
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 1rem;
+
+  &:hover {
+    background-color: darken(map_get($theme-colors, "dark-gray"), 10%);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 2px solid map_get($theme-colors, "dark-gray");
+    outline-offset: 2px;
+  }
+}
+
+// Override Claro jQuery UI theme styles
+// This prevents Claro's jQuery UI styling from affecting the xtra theme
+.ui-widget {
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: inherit !important;
+  font-size: inherit !important;
+}
+
+.ui-widget-content {
+  background: inherit !important;
+  color: inherit !important;
+  border: 1px solid #DEE2E6 !important; // gray
+}
+
+.ui-widget-header {
+  background: inherit !important;
+  color: inherit !important;
+  border: inherit !important;
+  font-weight: inherit !important;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  background: inherit !important;
+  color: inherit !important;
+  border: inherit !important;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover {
+  background: inherit !important;
+  color: inherit !important;
+  border: inherit !important;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  background: inherit !important;
+  color: inherit !important;
+  border: inherit !important;
+}
+
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  background: inherit !important;
+  color: inherit !important;
+  border: inherit !important;
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+  border-radius: inherit !important;
+}
+
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+  border-radius: inherit !important;
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+  border-radius: inherit !important;
+}
+
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+  border-radius: inherit !important;
+}
+
+// Override Claro's jQuery UI CSS custom properties
+// Aligned with xtra theme's color scheme and styling patterns
+:root {
+  // Background colors - using theme's faded colors and white
+  --jui-dropdown-bg-color: #ffffff;
+  --jui-dropdown-hover-bg-color: #ECF7FE; // faded-light-blue
+  --jui-dropdown-active-bg-color: #A1D6F8; // light-blue
+  --jui-dropdown-disabled-bg-color: #EEF0F1; // faded-gray
+
+  // Border colors - using theme's gray and primary colors
+  --jui-dropdown-border-color: #DEE2E6; // gray
+  --jui-dropdown-divider-color: #DEE2E6; // gray
+
+  // Text colors - using theme's dark colors
+  --jui-dropdown-text-color: #152E3A; // dark-gray
+  --jui-dropdown-hover-text-color: #152E3A; // dark-gray
+  --jui-dropdown-active-text-color: #152E3A; // dark-gray
+  --jui-dropdown-disabled-text-color: #6C757D; // dark
+
+  // Shadow - using theme's consistent shadow pattern
+  --jui-dropdown-shadow: 0 0.5rem 1rem rgba(21, 46, 58, 0.15); // dark-gray with opacity
+
+  // Border radius - using theme's consistent border radius
+  --jui-dropdown-border-radius: 0.25rem; // $border-radius from variables
+
+  // Padding - using theme's consistent spacing
+  --jui-dropdown-padding: 0.5rem 0;
+  --jui-dropdown-item-padding: 0.25rem 1rem;
+  --jui-dropdown-divider-margin: 0.5rem 0;
+}
+
+// Ensure jQuery UI autocomplete appears in front of navbar dropdowns
+.ui-autocomplete {
+  z-index: 1051 !important; // Just above Bootstrap modal (1050)
+  position: absolute !important;
+}
+
+.ui-autocomplete.ui-widget {
+  z-index: 1051 !important; // Just above Bootstrap modal (1050)
+  position: absolute !important;
+}

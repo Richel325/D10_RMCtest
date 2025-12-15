@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override to display a media item.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set mime_type = content.field_mime_type.0['#context']['value']|mime_map %}
+{% if content %}
+  {% set media_url = content.field_media_file.0|render|striptags|trim %}
+  {# If display name or data-title exists, over name value #}
+  {% if content.field_display_name|render|striptags|trim %}
+    {% set media_title = content.field_display_name|render|striptags|trim|replace({'&#039;': "'", '&quot;': '"'}) %}
+  {% else %}
+    {% set media_title = name %}
+  {% endif %}
+<div class="search-api-autocomplete-suggestion">
+    <span class="autocomplete-suggestion-label">
+        {{ media_title }}
+        <span class="badge text-bg-light bg-opacity-50 me-2 my-1">{{ mime_type }} {{ content.field_file_size.0|render|striptags|format_size }}</span>
+        <span class="badge text-bg-light bg-opacity-50 me-2 my-1">{{ content.field_group.0 }}</span>
+    </span>
+</div>
+{% endif %}

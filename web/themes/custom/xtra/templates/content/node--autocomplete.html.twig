@@ -1,0 +1,20 @@
+<div class="search-api-autocomplete-suggestion">
+    <span class="autocomplete-suggestion-label">
+        {% if content.field_short_title.0 %}
+        {{ content.field_short_title.0 }}
+        {% else %}
+        {{ label.0 }}
+        {% endif %}
+        {% if content.field_type.0 %}
+        <span class="badge text-bg-light bg-opacity-50 me-2 my-1">{{ content.field_type.0 }}</span>
+        {% else %}
+        <span class="badge text-bg-light bg-opacity-50 me-2 my-1 text-capitalize">{{ node.bundle }}</span>
+        {% endif %}
+        {% if content.field_group.0 %}
+        <span class="badge text-bg-light bg-opacity-50 me-2 my-1">{{ content.field_group.0 }}</span> 
+        {% endif %}
+        {% if content.field_organization.0 %}
+        <span class="badge text-bg-light bg-opacity-50 me-2 my-1">{{ content.field_organization.0 }}</span> 
+        {% endif %}
+    </span>
+</div>

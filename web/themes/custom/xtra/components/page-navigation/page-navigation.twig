@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Template for a Page Navigation component.
+ *
+#}
+{% apply spaceless %}
+
+{%
+  embed 'xtra:navbar' with {
+    container: 'fixed',
+    navbar_theme: 'light',
+    navbar_utility_classes: [
+      'justify-content-end',
+      'border',
+      'border-primary',
+      'border-0',
+      'border-bottom',
+      'border-4',
+    ],
+  }
+%}
+  {% block branding %}
+    {% if page.navbar_branding %}
+      {{ page.navbar_branding }}
+    {% endif %}
+  {% endblock %}
+  {% block left %}
+    {% if page.navbar_left %}
+      <div class="col col-xl-7">
+      {{ page.navbar_left }}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block right %}
+    {% if page.navbar_right %}
+      <div class="col col-xl-5">
+        {{ page.navbar_right }}
+      </div>
+    {% endif %}
+  {% endblock %}
+{% endembed %}
+
+{% endapply %}

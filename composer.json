@@ -24,6 +24,7 @@
         "drupal/core-recommended": "^10.5",
         "drupal/feeds": "^3.0",
         "drupal/material_base": "^3.1",
+        "drupal/radix": "^6.0",
         "drupal/search_api": "^1.38",
         "drupal/search_api_autocomplete": "^1.10",
         "drupal/search_api_solr": "^4.3",
