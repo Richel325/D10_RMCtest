@@ -1,0 +1,22 @@
+uuid: 451798c6-fa73-4fa4-9130-3ef04b7a37b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - xtra
+_core:
+  default_config_hash: Mbag22iqkkdBuTOp5BGXLDiz0Z6ZbxiOz8tLcuTqV4A
+id: xtra_breadcrumbs
+theme: xtra
+region: header
+weight: -4
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

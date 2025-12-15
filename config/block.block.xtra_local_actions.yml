@@ -1,0 +1,20 @@
+uuid: c542cfa5-2f56-4f39-9836-5914a3f40858
+langcode: en
+status: true
+dependencies:
+  theme:
+    - xtra
+_core:
+  default_config_hash: 0EGYOcHkwVpK7sx11DOzilP9F0iBJf7IfMcPH1fWLPY
+id: xtra_local_actions
+theme: xtra
+region: preheader
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
