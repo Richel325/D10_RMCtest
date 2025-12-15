@@ -22,7 +22,7 @@ mode: default
 content:
   field_artist_name:
     type: string
-    label: above
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }

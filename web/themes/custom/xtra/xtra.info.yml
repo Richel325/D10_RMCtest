@@ -1,7 +1,7 @@
 name: xtra
 screenshot: screenshot.png
 'alt text': 'radix_starterkit theme screenshot'
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 engine: twig
 type: theme
 'base theme': radix
