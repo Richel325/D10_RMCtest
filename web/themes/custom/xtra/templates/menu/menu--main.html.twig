@@ -1,0 +1,71 @@
+{#
+/**
+ * @file
+ * Theme override to display the main menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link URL, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+
+{% import _self as menus %}
+
+{% set nav_classes = [
+  'nav',
+  'nav-underline',
+  'mb-xl-2',
+  'mb-0',
+]|merge(nav_utility_classes ?: []) %}
+
+{% if items %}
+  <ul {{ attributes.addClass(nav_classes) }}>
+    {% block nav_items %}
+      {% for item in items %}
+        {% set nav_item_classes = [
+          'nav-item',
+          item.in_active_trail ? 'active' : '',
+          item.is_expanded and item.below ? 'dropdown' : ''
+        ]|merge(nav_item_utility_classes ?: []) %}
+
+        {% set nav_link_classes = [
+          'nav-link',
+          item.in_active_trail ? 'active' : '',
+        ]|merge(nav_link_utility_classes ?: []) %}
+
+        {% if item.url.options.attributes.class is iterable %}
+          {% set nav_link_classes = nav_link_classes|merge(item.url.options.attributes.class) %}
+        {% elseif item.url.options.attributes.class %}
+          {% set nav_link_classes = nav_link_classes|merge([item.url.options.attributes.class]) %}
+        {% endif %}
+
+        <li class="{{ nav_item_classes|join(' ') }}">
+          {% if item.is_expanded and item.below %}
+            <a href="{{ item.url }}" class="{{ nav_link_classes|merge(['dropdown-toggle'])|join(' ') }}" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">{{ item.title }}</a>
+            {% if item.below %}
+              {% include 'radix:dropdown-menu' with { items: item.below } %}
+            {% endif %}
+          {% else %}
+            {% if item.title == 'WiFi' %}
+              <a href="{{ item.url }}" class="{{ nav_link_classes|filter(i => i is not empty)|join(' ') }}"><i class="fa-light fa-wifi" aria-hidden="true"><span class="visually-hidden">{{ item.title }}</span></i></a>
+            {% else %}
+              {% if item.url %}
+                {{ link(item.title, item.url, { 'class': nav_link_classes }) }}
+              {% endif %}
+            {% endif %}
+          {% endif %}
+        </li>
+      {% endfor %}
+    {% endblock %}
+  </ul>
+{% endif %}

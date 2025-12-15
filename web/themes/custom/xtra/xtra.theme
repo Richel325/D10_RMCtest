@@ -1,0 +1,58 @@
+<?php
+
+/**
+ * @file
+ * Theme functions.
+ */
+
+// Include all files from the includes directory.
+$includes_path = dirname(__FILE__) . '/includes/*.theme';
+foreach (glob($includes_path) as $file) {
+  require_once dirname(__FILE__) . '/includes/' . basename($file);
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function xtra_library_info_alter(&$libraries, $extension) {
+  // Prevent Claro's jQuery UI theme from loading on xtra theme pages.
+  if ($extension === 'jquery_ui') {
+    // Remove any Claro theme CSS from jQuery UI library.
+    if (isset($libraries['theme']['css']['theme'])) {
+      foreach ($libraries['theme']['css']['theme'] as $css_file => $options) {
+        if (strpos($css_file, 'claro') !== FALSE) {
+          unset($libraries['theme']['css']['theme'][$css_file]);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function xtra_page_attachments(array &$attachments) {
+  // Check if we're on the frontpage.
+  $route_match = \Drupal::routeMatch();
+  $route_name = $route_match->getRouteName();
+
+  if ($route_name === '<front>') {
+    // Remove Claro's jQuery UI theme CSS from the page attachments.
+    if (isset($attachments['#attached']['library'])) {
+      foreach ($attachments['#attached']['library'] as $key => $library) {
+        if ($library === 'jquery_ui/theme') {
+          unset($attachments['#attached']['library'][$key]);
+        }
+      }
+    }
+
+    // Also check for CSS files directly attached.
+    if (isset($attachments['#attached']['html_head_link'])) {
+      foreach ($attachments['#attached']['html_head_link'] as $key => $link) {
+        if (isset($link[0]['href']) && strpos($link[0]['href'], 'claro/css/components/jquery.ui/theme.css') !== FALSE) {
+          unset($attachments['#attached']['html_head_link'][$key]);
+        }
+      }
+    }
+  }
+}

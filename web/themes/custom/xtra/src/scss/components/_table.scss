@@ -1,0 +1,63 @@
+// Table cards
+table.table-card .field__item{
+  margin-bottom: 0;
+}
+
+@include media-breakpoint-down(lg) {
+  table.table-card tr td{
+    border: 0;
+
+    .table-value-name{
+      font-size: $h3-font-size;
+    }
+  }
+}
+
+.table-card span.key {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .table-card {
+    span.key {
+      display: inline;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: block;
+
+      td {
+        display: block;
+        border-top: 0;
+        padding: 5px 25px;
+
+        &:first-child {
+          padding-top: 20px;
+        }
+        &:last-child {
+          padding-bottom: 20px;
+        }
+
+        a {
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          /* These are technically the same, but use both */
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-word;
+          hyphens: auto;
+        }
+
+      }
+    }
+  }
+}
+
+// Fixed equal table column sizes
+.table-fixed {
+  table-layout: fixed;
+}

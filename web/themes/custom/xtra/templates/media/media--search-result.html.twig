@@ -1,0 +1,88 @@
+{#
+/**
+ * @file
+ * Theme override to display media search results for all media types.
+ *
+ * Available variables:
+ * - name: Name of the media.
+ * - content: Media content.
+ *
+ * @see template_preprocess_media()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{%
+  set classes = [
+  'media--' ~ media.bundle(),
+  'card',
+  'my-3',
+  ]
+%}
+
+{% if content.field_mime_type.0['#context']['value'] %}
+	{% set mime_type = content.field_mime_type.0['#context']['value']|mime_map %}
+{% endif %}
+
+<div{{ attributes.addClass(classes).removeClass('align-center') }}>
+	<div class="row g-0">
+		{% if content.thumbnail|render %}
+			<div class="col-print-4 col-md-4 order-md-2 p-0 p-md-3 ms-print-3 d-flex align-items-center justify-content-center">
+				{{ content.thumbnail }}
+			</div>
+		{% endif %}
+		<div class="col">
+			<div class="card-body">
+				<h2 class="h4 fw-normal">
+					{% if media.bundle == 'document' %}
+						<a href="{{ content.field_media_file.0|render|striptags|trim }}">
+							<i class="gg-file-pdf"></i>
+							{{ name }}
+						</a>
+						{% if mime_type and content.field_file_size.0|render|striptags|trim %}
+							({{ mime_type }}
+							{{ content.field_file_size.0|render|striptags|format_size }})
+						{% endif %}
+					{% else %}
+						<a href="{{ path('entity.media.canonical', {'media': media.id}) }}">
+							{{ name }}
+						</a>
+						{% if mime_type and content.field_file_size.0|render|striptags|trim %}
+							({{ mime_type }}
+							{{ content.field_file_size.0|render|striptags|format_size }})
+						{% endif %}
+					{% endif %}
+				</h2>
+
+				{% if content.field_description %}
+					<div class="description mb-2">{{ content.field_description.0 }}</div>
+				{% endif %}
+
+				<div class="badge-list d-flex flex-wrap">
+					{% if content.field_type|length > 0 %}
+						<span class="badge text-bg-light bg-opacity-50 me-2 my-1">{{ content.field_type.0|render }}</span>
+					{% endif %}
+					{% if content.field_group|length > 0 %}
+						<span class="badge text-bg-light bg-opacity-50 me-2 my-1">{{ content.field_group.0|render }}</span>
+					{% endif %}
+					{% if content.field_tags|length > 0 %}
+						<span class="badge text-bg-light bg-opacity-50 me-2 my-1">{{ content.field_tags.0|render }}</span>
+					{% endif %}
+				</div>
+
+				{{ content|without(
+					'field_description',
+					'field_type', 
+					'field_group',
+					'field_tags',
+					'field_media_file',
+					'field_mime_type',
+					'field_file_size',
+					'thumbnail',
+					'image'
+				) }}
+			</div>
+		</div>
+	</div>
+</div>

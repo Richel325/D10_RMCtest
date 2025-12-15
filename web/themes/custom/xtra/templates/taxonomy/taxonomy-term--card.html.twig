@@ -1,0 +1,55 @@
+{#
+/**
+ * @file
+ * Template for term rendered by search.
+ */
+#}
+
+{%
+  set taxonomy_classes = [
+    'taxonomy',
+    not term.isPublished() ? 'term--unpublished',
+    term.bundle|clean_class,
+    term.bundle|clean_class ~ '--' ~ view_mode|clean_class,
+    'term--' ~ view_mode|clean_class,
+    'term--' ~ term.bundle|clean_class ~ '--' ~ view_mode|clean_class,
+    'view-mode--' ~ view_mode|clean_class,
+    'card',
+    'my-3',
+    'position-relative',
+  ]|merge(taxonomy_utility_classes ?: [])
+%}
+{%
+  set title_classes = [
+  'h4'
+]
+%}
+{%
+  set taxonomy_content_classes = [
+    'taxonomy__content',
+  ]|merge(taxonomy_content_utility_classes ?: [])
+%}
+
+{% set taxonomy_attributes = attributes ?: create_attribute() %}
+{% set taxonomy_content_attributes = create_attribute() %}
+<article{{ taxonomy_attributes.addClass(taxonomy_classes) }}>
+  <div class="row g-0">
+    {% if content.field_featured_image|render %}
+    <div class="col-print-4 col-md-4 order-md-2 p-0 p-md-3 ms-print-3 d-flex align-items-center justify-content-center">
+      {{ content.field_featured_image }}
+    </div>
+    {% endif %}
+		<div class="col">
+      <div class="card-body">
+        <h2{{ title_attributes.addClass(title_classes) }}>
+          {% if term.bundle() == 'contacts' and term.field_source.value == 'imported' %}
+            <a href="/user/{{ term.field_uid.value }}">{{ name }}</a>
+          {% else %}
+            {{ name }}
+          {% endif %}
+        </h2>
+        {{ content }}
+        </div>
+      </div>
+    </div>
+</article>

@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Theme override for a 'form' element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ */
+#}
+
+<h2>Search</h2>
+  {% include "radix:form" with {
+    is_inline: true,
+    form_utility_classes: ['d-flex','flex-row','column-gap-2','align-items-end','mb-3'],
+    legend_classes: [],
+  } %}

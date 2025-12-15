@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Template for rendering a user profile.
+ *
+ * Available variables:
+ * - view_mode: View mode; for example, "full", "teaser".
+ * - content: All content renderable arrays for the user.
+ * - user_utility_classes: (optional) An array of additional classes for design or styling requirements.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+{%
+  set classes = [
+    'user',
+    'user--' ~ view_mode|clean_class,
+  ]|merge(user_utility_classes ?: [])
+%}
+{% set render_user_image = content.field_image|render %}
+<div{{attributes.addClass(classes)}}>
+  {% block content %}
+
+    {% if view_mode|clean_class != "full" %}
+    <div class="card h-100 my-3">
+      <div class="row">
+          <div class="col">
+            <div class="card-body">
+              <div class="float-end ms-1 mb-2">
+                {#{% if render_user_image|trim %}
+                  {{- content.field_image -}}
+                {% else %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="150" height="150"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#CCCCCC" d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+                {% endif %}#}
+              </div>
+              <h2 class="h4"><a href="{{ path('entity.user.canonical', {'user': user.id}, {}) }}">{{ user.displayname }}</a></h2>
+              {{ content|without('field_image') }}
+            </div>
+          </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="row my-3">
+      <div class="col">
+        {{ content|without('field_image') }}
+      </div>
+      {#{% if render_user_image|trim %}
+        <div class="col-3">
+          {{- content.field_image -}}
+        </div>
+        {% else %}
+        <div class="col-3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="m-2"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="#CCCCCC" d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2c35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/></svg>
+        </div>
+        {% endif %}#}
+    </div>
+    {% endif %}
+
+  {% endblock %}
+</div>

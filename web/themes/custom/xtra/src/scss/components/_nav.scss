@@ -1,0 +1,90 @@
+// Custom style for the nav components.
+// -----------------------------------------------------------------------------
+ul.nav-vertical {
+  border: 2px solid $gray-200;
+  border-radius: 2px;
+  .nav-item {
+    border-bottom: 2px solid $gray-200;
+  }
+  .nav-item:last-of-type {
+    border-bottom: 0;
+  }
+  .nav-link {
+    text-decoration: none !important;
+    &:hover {
+      text-decoration: none !important;
+      background-color: $gray-100;
+      color: #0073A4;
+    }
+  }
+  .nav-link.active {
+    font-weight: $font-weight-bold;
+  }
+  a.nav-link.active.disabled {
+    background-color: #0073A4;
+  }
+  a.active {
+    color: white;
+  }
+}
+
+ul.nav-vertical ul.nav-vertical {
+  border: 0;
+  border-top: 2px solid $gray-200;
+  .nav-link {
+    padding-left: $spacer * 2;
+  }
+}
+
+ul.nav-vertical ul.nav-vertical ul.nav-vertical {
+  .nav-link {
+    padding-left: $spacer * 4;
+  }
+}
+
+ul.nav-vertical ul.nav-vertical ul.nav-vertical ul.nav-vertical{
+  .nav-link {
+    padding-left: $spacer * 8;
+  }
+}
+
+// Target nav within block--xtra-mainnavigation
+// -----------------------------------------------------------------------------
+.block--xtra-mainnavigation {
+  .nav {
+    display: flex;
+    justify-content: flex-end;
+    
+    .nav-item {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+// Target nav within block--xtra-main-menu-search-pages
+.block--xtra-main-menu-search-pages {
+  .nav-link {
+    font-size: $font-size-lg;
+    --acumin-wght: 500;
+  }
+}
+
+// Styles the primary tabs in Xtra to have a nice active and hover state.
+.nav-tabs {
+  .nav-item .nav-link {
+    background-color: none;
+    border: 0;
+    padding: 1rem;
+    border-radius: 0;
+    border-top: 5px solid rgb(0 0 0 / 0);
+    border-bottom: 5px solid rgb(0 0 0 / 0);
+    &:hover {
+      background-color: map_get($theme-colors, "faded-light-blue");
+    }
+    &.active{
+      background: none;
+      border-bottom: 5px solid map_get($theme-colors, "dark-gray");
+    }
+  }
+}

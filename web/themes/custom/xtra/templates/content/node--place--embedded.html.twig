@@ -1,0 +1,21 @@
+{% if content.field_short_title %}
+  {% set title = content.field_short_title.0 %}
+{% else %}
+  {% set title = label.0 %}
+{% endif %}
+
+{%
+  set link_classes = [
+  'stretched-link',
+  node.bundle|clean_class,
+]
+%}
+
+<div>
+  <h4 class="card-title mb-1">
+    {{ title }}
+  </h4>
+  <div class="card-text">
+    {{ content|without('field_short_title','field_featured_image','field_resource_url') }}
+  </div>
+</div>
